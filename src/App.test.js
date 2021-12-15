@@ -1,3 +1,4 @@
+// Possibly delete this file? Ask.
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
