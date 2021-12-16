@@ -24,7 +24,10 @@ function App() {
   },[])
   
   return (
+    <>
        <Map/>
+    </>
+
   );
 }
 
