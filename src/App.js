@@ -20,7 +20,7 @@ function App() {
 
     })
     
-    .then((resp)=>console.log(resp) )
+    .then(({data})=>console.log(data) )
   },[])
   
   return (
