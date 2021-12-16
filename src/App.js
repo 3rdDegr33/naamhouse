@@ -1,7 +1,7 @@
 import React , {useEffect} from "react"
 import './App.css';
 import axios from 'axios';
-
+import Map from "./navigation/Map";
 function App() { 
   const TOKEN = process.env.REACT_APP_BEARER_TOKEN;
 
@@ -24,9 +24,7 @@ function App() {
   },[])
   
   return (
-    <div className="App">
-
-    </div>
+       <Map/>
   );
 }
 
