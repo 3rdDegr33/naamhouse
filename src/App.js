@@ -1,8 +1,9 @@
-import React , {useEffect} from "react"
+import React , {useEffect, useState} from "react"
 import './App.css';
 import axios from 'axios';
 import Map from "./navigation/Map";
 function App() { 
+  const [center , setCenter ] = useState
   const TOKEN = process.env.REACT_APP_BEARER_TOKEN;
   const VS_KEY = process.env.REACT_APP_VS_KEY
   useEffect(()=>{
@@ -12,12 +13,12 @@ function App() {
      'Accept': 'application/json',
      'Content-Type': 'application/json'
    }
- } ).then(({data: {data}}) => console.log(data)) 
+ } ).then(({data: {data}}) => setCenter(data)) 
   },[])
   
   return (
     <>
-       <Map/>
+       <Map center = {center}/>
     </>
 
   );

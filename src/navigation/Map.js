@@ -4,7 +4,7 @@ import mapboxgl from "mapbox-gl";
 
 import ReactMapGL , { Marker  , NavigationControl , Layer} from 'react-map-gl';
 // import { BoxIconElement } from 'boxicons';
-function Map() {
+function Map({center}) {
   const map_key =   process.env.REACT_APP_MAP_KEY
   const [viewport, setViewport] = useState({
     width :400,
