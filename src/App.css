@@ -27,3 +27,12 @@
   border: solid 4px #fff;
   background-color: #cd2026;
 }
+.location {
+  border-radius: 50%;
+  width: 17px;
+  height: 17px;
+  box-shadow: 0 0 4px 0 rgb(0 0 0 / 50%);
+  border: solid 3px #fff;
+  background-color: #cd2026;
+ 
+}
