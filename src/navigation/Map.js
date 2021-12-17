@@ -23,7 +23,7 @@ function Map({center}) {
       <>
     <ReactMapGL
       {...viewport}
-      mapStyle={'mapbox://styles/mapbox/streets-v8'}
+      mapStyle={'mapbox://styles/azizx/ckx9tq76j2ple14p5avro28at'}
       mapboxApiAccessToken={ map_key}
       onViewportChange={nextViewport => setViewport(nextViewport)}
       maxZoom={18}
