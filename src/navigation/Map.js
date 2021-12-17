@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { useState } from 'react';
-import ReactMapGL , { Marker  , NavigationControl} from 'react-map-gl';
+import mapboxgl from "mapbox-gl";
+
+import ReactMapGL , { Marker  , NavigationControl , Layer} from 'react-map-gl';
 // import { BoxIconElement } from 'boxicons';
 function Map() {
   const map_key =   process.env.REACT_APP_MAP_KEY
@@ -17,13 +19,15 @@ function Map() {
     right: 10,
     top: 10
   };
+
   return (
       <>
     <ReactMapGL
       {...viewport}
-      mapStyle={'mapbox://styles/mapbox/streets-v9'}
+      mapStyle={'mapbox://styles/mapbox/streets-v8'}
       mapboxApiAccessToken={ map_key}
       onViewportChange={nextViewport => setViewport(nextViewport)}
+      maxZoom={18}
       >   <NavigationControl style={navControlStyle} />
           <Marker
            latitude={38.898013005557324}
@@ -33,8 +37,19 @@ function Map() {
          
            >  
            <i className='bx bxs-map'style={{fontSize: `${viewport.zoom * 0.2}rem`}}></i>
-            
-        </Marker>
+           </Marker>
+     {/* <Layer
+      id = 'snotel-sites-circle'
+      type= 'circle'
+      source = "snotel-sites"
+      paint={{ "circle-color": "#1d1485", "circle-radius": 8,
+      "circle-stroke-color": "#ffffff",
+      "circle-stroke-width": 2}}
+      latitude={38.898013005557324}
+      longitude={-77.03631965305111}
+     /> */}
+      
+    
        </ReactMapGL>
       </>
   )

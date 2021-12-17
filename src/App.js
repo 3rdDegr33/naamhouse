@@ -4,22 +4,15 @@ import axios from 'axios';
 import Map from "./navigation/Map";
 function App() { 
   const TOKEN = process.env.REACT_APP_BEARER_TOKEN;
-
+  const VS_KEY = process.env.REACT_APP_VS_KEY
   useEffect(()=>{
-    axios.get(`https://cors-anywhere.herokuapp.com/api.yelp.com/v3/businesses/search`, {  
+    axios.get(`https://sandbox-api.va.gov/services/va_facilities/v0/facilities?page=1&per_page=1&state=NY`, {  
       headers: {
-            Authorization: `Bearer ${TOKEN}`,
-            withCredentials: true,
-            "Access-Control-Allow-Origin": "*",
-          }, params: {
-                term: 'food',
-                location: 'NYC'
-               
-            }
-
-    })
-    
-    .then(({data})=>console.log(data) )
+       'apikey': `${VS_KEY}`,
+     'Accept': 'application/json',
+     'Content-Type': 'application/json'
+   }
+ } ).then(({data: {data}}) => console.log(data)) 
   },[])
   
   return (
