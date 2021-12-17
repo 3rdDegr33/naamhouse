@@ -25,8 +25,9 @@ function App() {
     <>
        <Map center = {center}/>
        {center.map((e,i)=>(
-         <p>{e.attributes.name}</p>
+         <p key={i}>{e.attributes.name}</p>
        ))}
+       
     </>
 
   );

@@ -34,7 +34,7 @@ function Map({center}) {
               longitude = {-73.96892359984999}
               latitude = {40.778856033719066}
            >
-           <span className='i-pin-card-map mapboxgl-marker mapboxgl-marker-anchor-center location' >
+           <span id='pin' className='i-pin-card-map mapboxgl-marker mapboxgl-marker-anchor-center location' >
                    </span>
            </Marker>
              {center.map((e , i) =>(
