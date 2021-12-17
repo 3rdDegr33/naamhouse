@@ -16,7 +16,9 @@ function Map({center}) {
   });
   const navControlStyle= {
     right: 10,
-    top: 10
+    top: 10,
+    height: 20,
+    width: 30
   };
 
   return (
