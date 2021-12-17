@@ -8,12 +8,11 @@ function Map({center}) {
   const [viewport, setViewport] = useState({
     width :695,
     height :694,
-    longitude: -77.03631965305111,
-    latitude: 38.898013005557324,
-    zoom: 14,
+    longitude: -74.00318494933525,
+    latitude: 40.71432627313285,
+    zoom: 10,
     bearing: 0,
     pitch: 0
-    
   });
   const navControlStyle= {
     right: 10,

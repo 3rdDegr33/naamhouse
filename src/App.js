@@ -7,7 +7,7 @@ function App() {
   const TOKEN = process.env.REACT_APP_BEARER_TOKEN;
   const VS_KEY = process.env.REACT_APP_VS_KEY
   useEffect(()=>{
-    axios.get(`https://sandbox-api.va.gov/services/va_facilities/v0/facilities?page=1&per_page=1&state=NY`, {  
+    axios.get(`https://sandbox-api.va.gov/services/va_facilities/v0/facilities?page=1&per_page=4&state=NY`, {  
       headers: {
        'apikey': `${VS_KEY}`,
      'Accept': 'application/json',
