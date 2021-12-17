@@ -37,3 +37,35 @@
     transform: rotate(360deg);
   }
 }
+.i-pin-card-map {
+  border-radius: 50%;
+  background: #323a45;
+  color: #fff;
+  justify-content: center;
+  align-content: center;
+  display: inline-flex;
+  font-size: 17px;
+  padding-top: 1px;
+  width: 24px;
+  height: 24px;
+}
+.mapboxgl-marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+.current-pos-pin {
+  border-radius: 50%;
+  width: 23px;
+  height: 23px;
+  box-shadow: 0 0 4px 0 rgb(0 0 0 / 50%);
+  border: solid 4px #fff;
+  background-color: #cd2026;
+}
+.mapboxgl-map {
+  font: 12px/20px Helvetica Neue,Arial,Helvetica,sans-serif;
+  overflow: hidden;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
