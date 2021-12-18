@@ -4,6 +4,7 @@ import axios from 'axios';
 import Map from "./navigation/Map";
 function App() { 
   const [center , setCenter ] = useState([])
+  const [info  , setInfo ] = useState({})
   const TOKEN = process.env.REACT_APP_BEARER_TOKEN;
   const VS_KEY = process.env.REACT_APP_VS_KEY
   useEffect(()=>{
@@ -24,20 +25,24 @@ function App() {
         //
         for (const val of center){
           const {attributes:{name , phone:{fax , main}}} = val 
-          console.log(name , fax , main)          
           for (const {zip , address_1 , address_2 , city , state} of [val.attributes.address.physical]){
-          console.log(` ${address_1} | ${address_2} | ${city} | ${state} | ${zip}`)
+                  console.log(` name: ${name} | main: ${main} | fax: ${fax} address1: ${address_1} | address2 : ${address_2} | city:${city} | state:${state} | ${zip}`)
           }
         }
-  }
+      }
+      
   return (
     <>
        <Map center = {center}/>
-       {center.map(({attributes},i)=>(
-         <div key={i}>
-         <p>place name: {attributes.name} || address: {attributes.address.physical.address_1}</p>
-         </div>
-       ))}
+       {center.map((e,i)=>{
+          const {attributes:{name , phone:{fax , main}}} = e 
+          const {zip , address_1 , address_2 , city , state}  = e.attributes.address.physical
+          return (
+                <div key={i}>
+                  <p>{` name: ${name} | main: ${main} | fax: ${fax} address1: ${address_1} | address2 : ${address_2} | city:${city} | state:${state} | ${zip}`}</p>
+                </div>
+         )
+})}
          <button onClick={handleFetch}>search</button>
        
     </>
