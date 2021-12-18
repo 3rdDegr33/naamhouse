@@ -1,6 +1,22 @@
 @import url('https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css');
-
- .i-pin-card-map {
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&display=swap');
+*{
+  /* box-sizing: border-box; */
+  font-family: "Lexend", sans-serif;
+} 
+body {
+	font-family: "Lexend", sans-serif;
+	line-height: 1.5;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #393232;
+}
+.sidebar {
+  border: solid 1px #0000004f;
+}
+.i-pin-card-map {
   border-radius: 50%;
   background: #323a45;
   color: #fff;
@@ -12,7 +28,66 @@
   width: 24px;
   height: 24px;
 }
-
+#main{
+  display: flex;
+}
+#root{
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+}
+.card {
+  background-color: #FFF;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 11%), 0 7px 7px 0 rgb(0 0 0 / 10%);
+  overflow: hidden;
+  padding: 1.25rem;
+  position: relative;
+  transition: 0.15s ease-in;
+  display: block;
+}
+.card-list {
+  width: 110%;
+  width: 305px;
+  overflow-y: auto;
+}
+.card-header {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-footer {
+  margin-top: 1.25rem;
+  border-top: 1px solid #ddd;
+  padding-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.l-item{
+  top: 1rem;
+  left: 1rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 40px rgb(0 0 0 / 3%);
+  height: calc(103vh - 10rem);
+  border: solid 1px #9f9b9b9c;
+  overflow-y: scroll;
+  z-index: 22;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  color: #f9fafb;
+  padding: 20px 40px;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(16 18 27 / 40%);
+}
+.menu{
+  display: grid;
+  margin: inherit;
+}
 .mapboxgl-marker {
   position: absolute;
   top: 0;

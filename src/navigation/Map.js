@@ -7,7 +7,7 @@ function Map({center}) {
   const map_key =   process.env.REACT_APP_MAP_KEY
   const [viewport, setViewport] = useState({
     width :695,
-    height :694,
+    height :786,
     longitude: -74.00318494933525,
     latitude: 40.71432627313285,
     zoom: 10,

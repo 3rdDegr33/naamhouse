@@ -2,6 +2,7 @@ import React , {useEffect, useState} from "react"
 import './App.css';
 import axios from 'axios';
 import Map from "./navigation/Map";
+import Document from "./static/Document";
 function App() { 
   const [center , setCenter ] = useState([])
   const [info  , setInfo ] = useState({})
@@ -10,7 +11,7 @@ function App() {
   useEffect(()=>{
     axios.get(`https://sandbox-api.va.gov/services/va_facilities/v0/facilities`, {  
       headers: {
-     'apikey': `${VS_KEY}`, 
+     'apikey': `${VS_KEY}`,  
      'Accept': 'application/json',
      'Content-Type': 'application/json'
    } ,
@@ -32,20 +33,31 @@ function App() {
       }
       
   return (
-    <>
+    <div id='main'>
+       <Document center={center}/>
        <Map center = {center}/>
+       {/* <ul className="l-item">
+
        {center.map((e,i)=>{
           const {attributes:{name , phone:{fax , main}}} = e 
           const {zip , address_1 , address_2 , city , state}  = e.attributes.address.physical
           return (
-                <div key={i}>
-                  <p>{` name: ${name} | main: ${main} | fax: ${fax} address1: ${address_1} | address2 : ${address_2} | city:${city} | state:${state} | ${zip}`}</p>
-                </div>
+                <li key={i} className="menu">
+                  <span> {`name: ${name}`}</span>
+                  <span> {`main: ${main}`}</span>
+                  <span>{`fax: ${fax}`}</span>
+                  <span>{`address1: ${address_1}`}</span>
+                  <span>{`address2 : ${address_2}`}</span>
+                  <span>{`city:${city}`}</span>
+                  <span>{`state:${state}`}</span>
+                  <span>{`zip ${zip}`}</span>
+                </li>
          )
 })}
          <button onClick={handleFetch}>search</button>
+         </ul> */}
        
-    </>
+    </div>
 
   );
 }
