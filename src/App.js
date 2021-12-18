@@ -23,9 +23,10 @@ function App() {
   const handleFetch = ()=>{
         //
         for (const val of center){
-          // console.log(val.attributes.address.physical)
+          const {attributes:{name , phone:{fax , main}}} = val 
+          console.log(name , fax , main)          
           for (const {zip , address_1 , address_2 , city , state} of [val.attributes.address.physical]){
-            console.log(` ${address_1} | ${address_2} | ${city} | ${state} | ${zip}`)
+          console.log(` ${address_1} | ${address_2} | ${city} | ${state} | ${zip}`)
           }
         }
   }
