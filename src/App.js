@@ -6,6 +6,7 @@ import Document from "./static/Document";
 function App() { 
   const [center , setCenter ] = useState([])
   const [info  , setInfo ] = useState({})
+  const [selected , setSelected] = useState('')
   const TOKEN = process.env.REACT_APP_BEARER_TOKEN;
   const VS_KEY = process.env.REACT_APP_VS_KEY
   useEffect(()=>{
@@ -22,6 +23,10 @@ function App() {
    }
  } ).then(({data: {data}}) => setCenter(data)) 
   },[])
+  const reveal = (target)=>{
+        console.log('target' , target)
+        setSelected(target)
+  }
   const handleFetch = ()=>{
         //
         for (const val of center){
@@ -34,8 +39,9 @@ function App() {
       
   return (
     <div id='main'>
-       <Document center={center}/>
-       <Map center = {center}/>
+       <Document center={center} selected={selected}/>
+       <Map center = {center} reveal={reveal}/>
+       {/* <input placeholder="search..." className="search"/> */}
     </div>
 
   );
