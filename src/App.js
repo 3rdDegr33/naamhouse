@@ -9,7 +9,7 @@ function App() {
   useEffect(()=>{
     axios.get(`https://sandbox-api.va.gov/services/va_facilities/v0/facilities`, {  
       headers: {
-       'apikey': `${VS_KEY}`,
+     'apikey': `${VS_KEY}`, 
      'Accept': 'application/json',
      'Content-Type': 'application/json'
    } ,
@@ -20,13 +20,24 @@ function App() {
    }
  } ).then(({data: {data}}) => setCenter(data)) 
   },[])
-  
+  const handleFetch = ()=>{
+        //
+        for (const val of center){
+          // console.log(val.attributes.address.physical)
+          for (const {zip , address_1 , address_2 , city , state} of [val.attributes.address.physical]){
+            console.log(` ${address_1} | ${address_2} | ${city} | ${state} | ${zip}`)
+          }
+        }
+  }
   return (
     <>
        <Map center = {center}/>
-       {center.map((e,i)=>(
-         <p key={i}>{e.attributes.name}</p>
+       {center.map(({attributes},i)=>(
+         <div key={i}>
+         <p>place name: {attributes.name} || address: {attributes.address.physical.address_1}</p>
+         </div>
        ))}
+         <button onClick={handleFetch}>search</button>
        
     </>
 
