@@ -36,27 +36,6 @@ function App() {
     <div id='main'>
        <Document center={center}/>
        <Map center = {center}/>
-       {/* <ul className="l-item">
-
-       {center.map((e,i)=>{
-          const {attributes:{name , phone:{fax , main}}} = e 
-          const {zip , address_1 , address_2 , city , state}  = e.attributes.address.physical
-          return (
-                <li key={i} className="menu">
-                  <span> {`name: ${name}`}</span>
-                  <span> {`main: ${main}`}</span>
-                  <span>{`fax: ${fax}`}</span>
-                  <span>{`address1: ${address_1}`}</span>
-                  <span>{`address2 : ${address_2}`}</span>
-                  <span>{`city:${city}`}</span>
-                  <span>{`state:${state}`}</span>
-                  <span>{`zip ${zip}`}</span>
-                </li>
-         )
-})}
-         <button onClick={handleFetch}>search</button>
-         </ul> */}
-       
     </div>
 
   );
