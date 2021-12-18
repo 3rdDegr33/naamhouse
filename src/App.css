@@ -19,7 +19,9 @@ body {
   background: #ee4035;
   color: #fff;
   padding: 0.25em;
+  border-radius: 4px;
 }
+
 .card::-webkit-scrollbar {
   width: 5px;
   height: 8px;
@@ -31,6 +33,7 @@ body {
 .sidebar {
   border: solid 1px #0000004f;
 }
+
 .i-pin-card-map {
   border-radius: 50%;
   background: #323a45;
@@ -195,4 +198,7 @@ body {
     padding: 12px 104px 11px 64px;
     -webkit-transition-duration: .3s;
     transition-duration: .3s;
+}
+.pin-sel {
+  background: #e00707;
 }

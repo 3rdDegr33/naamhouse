@@ -40,7 +40,7 @@ function App() {
   return (
     <div id='main'>
        <Document center={center} selected={selected}/>
-       <Map center = {center} reveal={reveal}/>
+       <Map center = {center} reveal={reveal} selected={selected}/>
        {/* <input placeholder="search..." className="search"/> */}
     </div>
 

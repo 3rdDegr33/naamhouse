@@ -3,7 +3,7 @@ import { useState } from 'react';
 import mapboxgl from "mapbox-gl";
 import ReactMapGL , { Marker  , NavigationControl , Layer} from 'react-map-gl';
 // import { BoxIconElement } from 'boxicons';
-function Map({center , reveal}) {
+function Map({center , reveal , selected}) {
   const map_key =   process.env.REACT_APP_MAP_KEY
   const [viewport, setViewport] = useState({
     width :695,
@@ -44,7 +44,8 @@ function Map({center , reveal}) {
                 longitude={e.attributes.long}
                 offsetTop={-22}
                >
-                   <span onClick={()=>reveal(`${e.id}`)} className='i-pin-card-map mapboxgl-marker mapboxgl-marker-anchor-center'>
+
+                   <span onClick={()=>reveal(`${e.id}`)} className={`i-pin-card-map mapboxgl-marker mapboxgl-marker-anchor-center ${selected === e.id?'pin-sel':''}`}>
                      {`${String.fromCharCode(65+i)}`}
                    </span>
                </Marker>
