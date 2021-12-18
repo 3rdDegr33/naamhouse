@@ -1,7 +1,7 @@
 @import url('https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&display=swap');
 *{
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
   font-family: "Lexend", sans-serif;
 } 
 body {
@@ -45,6 +45,9 @@ body {
   position: relative;
   transition: 0.15s ease-in;
   display: block;
+  overflow-y: auto;
+  max-height: 78vh;
+  width: 305px;
 }
 .card-list {
   width: 110%;
