@@ -45,7 +45,7 @@ function Map({center}) {
                 offsetTop={-22}
                >
                    <span className='i-pin-card-map mapboxgl-marker mapboxgl-marker-anchor-center'>
-                     A
+                     {`${String.fromCharCode(65+i)}`}
                    </span>
                </Marker>
              ))}

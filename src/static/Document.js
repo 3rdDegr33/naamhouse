@@ -10,12 +10,12 @@ const Document = ({center}) => {
         const {zip , address_1 , address_2 , city , state}  = e.attributes.address.physical
         return (
               <li key={i} className="card-footer">
-                <span> {`${name}`}</span>
-                <span>{`address1: ${address_1}`}</span>
+                <h2> {`${name}`}</h2>
+                <span>{`address1 : ${address_1}`}</span>
                 <span>{`address2 : ${address_2}`}</span>
-                <span>{`city:${city}`}</span>
-                <span>{`state:${state}`}</span>
-                <span>{`zip ${zip}`}</span>
+                <span>{`city: ${city}`}</span>
+                <span>{`state: ${state}`}</span>
+                <span>{`zip: ${zip}`}</span>
                 <span> {`main: ${main}`}</span>
                 <span>{`fax: ${fax}`}</span>
               </li>

@@ -23,7 +23,7 @@ body {
   justify-content: center;
   align-content: center;
   display: inline-flex;
-  font-size: 17px;
+  font-size: 15px;
   padding-top: 1px;
   width: 24px;
   height: 24px;
@@ -47,7 +47,7 @@ body {
   display: block;
   overflow-y: auto;
   max-height: 78vh;
-  width: 305px;
+  padding: 0 16px;
 }
 .card-list {
   width: 110%;
@@ -67,6 +67,22 @@ body {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  color: #3a3a3e;
+    font-size: 15px;
+    margin-top: 14px;
+    line-height: 1.6em;
+}
+.card-footer::before {
+  counter-increment: tiles;
+  content: counter(tiles);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2c744;
+  font-weight: 700;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
 }
 .l-item{
   top: 1rem;
