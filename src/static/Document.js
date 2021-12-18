@@ -10,7 +10,7 @@ const Document = ({center , selected}) => {
         const {zip , address_1 , address_2 , city , state}  = e.attributes.address.physical
         let option = selected === id? 'selected ':""
         return (
-              <li key={i} className='card-footer'>
+              <li key={i} className='card-footer' >
                 <h2 className={option}> {`${name}`}</h2>
                 <span>{`address1 : ${address_1}`}</span>
                 <span>{`address2 : ${address_2}`}</span>

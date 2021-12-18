@@ -14,7 +14,11 @@ body {
 	color: #393232;
 }
 .selected{
-  color: green;
+  /*color: #e00707; #14cb3d*/
+  display: inline;
+  background: #ee4035;
+  color: #fff;
+  padding: 0.25em;
 }
 .card::-webkit-scrollbar {
   width: 5px;
