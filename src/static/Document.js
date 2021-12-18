@@ -24,22 +24,6 @@ const Document = ({center}) => {
        </article>
       </div>
      </div>
-
-
-    // <div class="sidebar">
-    //   <div class="card-list">
-    //     <article class="card">
-    //       <div class="card-header">
-    //         <input placeholder="search" />
-    //       </div>
-    //       <div class="card-footer">
-    //         <p>hello</p>
-    //       </div>
-    //     </article>
-    //   </div>
-    // </div>
-
-    
   );
 };
 
