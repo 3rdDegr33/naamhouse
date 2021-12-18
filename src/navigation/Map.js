@@ -44,7 +44,7 @@ function Map({center}) {
                 longitude={e.attributes.long}
                 offsetTop={-22}
                >
-                   <span className='i-pin-card-map mapboxgl-marker mapboxgl-marker-anchor-center'>
+                   <span onClick={()=>alert(`${e.attributes.name}`)} className='i-pin-card-map mapboxgl-marker mapboxgl-marker-anchor-center'>
                      {`${String.fromCharCode(65+i)}`}
                    </span>
                </Marker>
