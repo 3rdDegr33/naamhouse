@@ -45,7 +45,6 @@ const Map2 = ({center , reveal , selected}) => {
     },
     [handleViewportChange]
   );
-
   return (
     <>
       <MapGL
@@ -66,13 +65,20 @@ const Map2 = ({center , reveal , selected}) => {
           /> 
         <Geocoder
           mapRef={mapRef}
+          // onResult={({result:{center}})=>(<Marker 
+          //     longitude = {center[0]}
+          //     latitude = {center[1]}
+          //   />)}
           onViewportChange={handleGeocoderViewportChange}
           mapboxApiAccessToken={MAPBOX_TOKEN}
           position="top-left"
+          reverseGeocode = {true}
+          
         />
         <Marker
               longitude = {-73.96892359984999}
               latitude = {40.778856033719066}
+              draggable= {true}
            >
            <span id='pin' className='i-pin-card-map mapboxgl-marker mapboxgl-marker-anchor-center location' >
                <span className='popup'>You are Here!!</span>

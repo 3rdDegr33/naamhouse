@@ -3,10 +3,12 @@ import './App.css';
 import axios from 'axios';
 import Map from "./navigation/Map";
 import Document from "./static/Document";
+import Scanner from "./static/scanner/Scanner";
 function App() { 
   const [center , setCenter ] = useState([])
   const [info  , setInfo ] = useState({})
   const [selected , setSelected] = useState('')
+  const [value , setValue] = useState('')
   const TOKEN = process.env.REACT_APP_BEARER_TOKEN;
   const VS_KEY = process.env.REACT_APP_VS_KEY
   useEffect(()=>{
@@ -24,7 +26,6 @@ function App() {
  } ).then(({data: {data}}) => setCenter(data)) 
   },[])
   const reveal = (target)=>{
-        console.log('target' , target)
         setSelected(target)
   }
   const handleFetch = ()=>{
@@ -42,6 +43,7 @@ function App() {
        <Document center={center} selected={selected}/>
        <Map center = {center} reveal={reveal} selected={selected}/>
        {/* <input placeholder="search..." className="search"/> */}
+        <Scanner value={value}/>
     </div>
 
   );

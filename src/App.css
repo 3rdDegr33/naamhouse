@@ -180,13 +180,13 @@ body {
 45deg);
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1);
 }
-.popup:hover {
+/* .popup:hover {
 
   opacity: 1;
   background-color: #333333;
   color: #ffffff;
   top: -235%;
-}
+} */
 .search{
   position: relative;
     background: #fff;
