@@ -37,11 +37,13 @@ function App() {
           }
         }
       }
-      
+  const handleCenter = (cord)=>{
+       setValue(cord)
+  } 
   return (
     <div id='main'>
        <Document center={center} selected={selected}/>
-       <Map center = {center} reveal={reveal} selected={selected}/>
+       <Map center = {center} reveal={reveal} selected={selected} handleCenter ={handleCenter}/>
        {/* <input placeholder="search..." className="search"/> */}
         <Scanner value={value}/>
     </div>

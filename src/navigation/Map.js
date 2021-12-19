@@ -7,7 +7,7 @@ import MapGL from "react-map-gl";
 import Geocoder from "react-map-gl-geocoder";
 const MAPBOX_TOKEN = process.env.REACT_APP_MAP_KEY
 
-const Map2 = ({center , reveal , selected}) => {
+const Map2 = ({center , reveal , selected , handleCenter}) => {
   const [viewport, setViewport] = useState({
     width :695,
     height :786,  
@@ -65,15 +65,12 @@ const Map2 = ({center , reveal , selected}) => {
           /> 
         <Geocoder
           mapRef={mapRef}
-          // onResult={({result:{center}})=>(<Marker 
-          //     longitude = {center[0]}
-          //     latitude = {center[1]}
-          //   />)}
+          onResult={({result:{center}})=> handleCenter(center)}
           onViewportChange={handleGeocoderViewportChange}
           mapboxApiAccessToken={MAPBOX_TOKEN}
           position="top-left"
           reverseGeocode = {true}
-          
+          marker = {true}
         />
         <Marker
               longitude = {-73.96892359984999}
