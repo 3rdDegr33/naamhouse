@@ -1,20 +1,19 @@
-import * as React from 'react';
-import { useState , useRef} from 'react';
+import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
-import mapboxgl from "mapbox-gl";
-import Geocoder from "react-map-gl-geocoder";
+import React, { useState, useRef, useCallback } from "react";
 import ReactMapGL , { Marker  , NavigationControl , Layer , GeolocateControl} from 'react-map-gl';
-// import { BoxIconElement } from 'boxicons';
-function Map({center , reveal , selected}) {
-  const map_key =   process.env.REACT_APP_MAP_KEY
+
+import MapGL from "react-map-gl";
+import Geocoder from "react-map-gl-geocoder";
+const MAPBOX_TOKEN = process.env.REACT_APP_MAP_KEY
+
+const Map2 = ({center , reveal , selected}) => {
   const [viewport, setViewport] = useState({
     width :695,
-    height :786,
-    longitude: -74.00318494933525,
-    latitude: 40.71432627313285,
-    zoom: 10,
-    bearing: 0,
-    pitch: 0
+    height :786,  
+    latitude: 37.7577,
+    longitude: -122.4376,
+    zoom: 8
   });
   const navControlStyle= {
     right: 10,
@@ -22,29 +21,56 @@ function Map({center , reveal , selected}) {
     height: 20,
     width: 30
   };
+  const goeLocationStyle = {
+    right: 10,
+    top: 100,
+    height: 20,
+    width: 30
+  }
   const mapRef = useRef();
+  const handleViewportChange = useCallback(
+    (newViewport) => setViewport(newViewport),
+    []
+  );
+
+  // if you are happy with Geocoder default settings, you can just use handleViewportChange directly
+  const handleGeocoderViewportChange = useCallback(
+    (newViewport) => {
+      const geocoderDefaultOverrides = { transitionDuration: 1000 };
+
+      return handleViewportChange({
+        ...newViewport,
+        ...geocoderDefaultOverrides
+      });
+    },
+    [handleViewportChange]
+  );
+
   return (
-      <>
-    <ReactMapGL
-      {...viewport}
-      mapStyle={'mapbox://styles/azizx/ckx9tq76j2ple14p5avro28at'}
-      mapboxApiAccessToken={ map_key}
-      onViewportChange={nextViewport => setViewport(nextViewport)}
-      maxZoom={18}
-      >
-          <GeolocateControl 
+    <>
+      <MapGL
+        ref={mapRef}
+        {...viewport}
+        maxZoom={18}
+        mapStyle={'mapbox://styles/azizx/ckx9tq76j2ple14p5avro28at'}
+        onViewportChange={handleViewportChange}
+        mapboxApiAccessToken={MAPBOX_TOKEN}
+
+      > 
+       <NavigationControl style={navControlStyle} />
+        <GeolocateControl 
+          style={goeLocationStyle}
           enableHighAccuracy={true}
           showUserHeading={true}
           trackUserLocation={true}
-          />   
-      <NavigationControl style={navControlStyle} />
-      {/* <Geocoder
-         mapRef={mapRef}
-         onViewportChange={nextViewport => setViewport(nextViewport)}
-         mapboxApiAccessToken={ map_key}
-         position="top-left"
-      /> */}
-           <Marker
+          /> 
+        <Geocoder
+          mapRef={mapRef}
+          onViewportChange={handleGeocoderViewportChange}
+          mapboxApiAccessToken={MAPBOX_TOKEN}
+          position="top-left"
+        />
+        <Marker
               longitude = {-73.96892359984999}
               latitude = {40.778856033719066}
            >
@@ -52,7 +78,7 @@ function Map({center , reveal , selected}) {
                <span className='popup'>You are Here!!</span>
                    </span>
            </Marker>
-             {center.map((e , i) =>(
+           {center.map((e , i) =>(
                <Marker key={i}
                 latitude={e.attributes.lat}
                 longitude={e.attributes.long}
@@ -63,11 +89,9 @@ function Map({center , reveal , selected}) {
                      {`${String.fromCharCode(65+i)}`}
                    </span>
                </Marker>
-             ))}
-      
-    
-       </ReactMapGL>
-      </>
-  )
-}
-export default Map;  
+             ))} 
+      </MapGL>
+    </>
+  );
+};
+export default Map2;
