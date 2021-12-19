@@ -1,6 +1,8 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState , useRef} from 'react';
+import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import mapboxgl from "mapbox-gl";
+import Geocoder from "react-map-gl-geocoder";
 import ReactMapGL , { Marker  , NavigationControl , Layer , GeolocateControl} from 'react-map-gl';
 // import { BoxIconElement } from 'boxicons';
 function Map({center , reveal , selected}) {
@@ -20,7 +22,7 @@ function Map({center , reveal , selected}) {
     height: 20,
     width: 30
   };
-
+  const mapRef = useRef();
   return (
       <>
     <ReactMapGL
@@ -31,10 +33,17 @@ function Map({center , reveal , selected}) {
       maxZoom={18}
       >
           <GeolocateControl 
+          enableHighAccuracy={true}
           showUserHeading={true}
           trackUserLocation={true}
           />   
       <NavigationControl style={navControlStyle} />
+      {/* <Geocoder
+         mapRef={mapRef}
+         onViewportChange={nextViewport => setViewport(nextViewport)}
+         mapboxApiAccessToken={ map_key}
+         position="top-left"
+      /> */}
            <Marker
               longitude = {-73.96892359984999}
               latitude = {40.778856033719066}
