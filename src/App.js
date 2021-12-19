@@ -3,7 +3,6 @@ import './App.css';
 import axios from 'axios';
 import Map from "./navigation/Map";
 import Document from "./static/Document";
-import Map from "./navigation/Map";
 function App() { 
   const [center , setCenter ] = useState([])
   const [info  , setInfo ] = useState({})
@@ -42,7 +41,7 @@ function App() {
     <div id='main'>
        <Document center={center} selected={selected}/>
        <Map center = {center} reveal={reveal} selected={selected}/>
-       <input placeholder="search..." className="search"/>
+       {/* <input placeholder="search..." className="search"/> */}
     </div>
 
   );
