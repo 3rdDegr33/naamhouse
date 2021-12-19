@@ -30,7 +30,10 @@ function Map({center , reveal , selected}) {
       onViewportChange={nextViewport => setViewport(nextViewport)}
       maxZoom={18}
       >
-          <GeolocateControl/>   
+          <GeolocateControl 
+          showUserHeading={true}
+          trackUserLocation={true}
+          />   
       <NavigationControl style={navControlStyle} />
            <Marker
               longitude = {-73.96892359984999}
