@@ -5,6 +5,7 @@ const Document = ({center , selected}) => {
      <div className="sidebar">
       <div className="card-list">
         <article className="card">
+            <h2>{`results - ${center.length}`}</h2>
     {center.map((e,i)=>{
         const {id,attributes:{name , phone:{fax , main}}} = e 
         const {zip , address_1 , address_2 , city , state}  = e.attributes.address.physical
@@ -17,8 +18,8 @@ const Document = ({center , selected}) => {
                 <span>{`city: ${city}`}</span>
                 <span>{`state: ${state}`}</span>
                 <span>{`zip: ${zip}`}</span>
-                <a href="#"> {`main: ${main}`}</a>
-                <a href="#">{`fax: ${fax}`}</a>
+                <a href={`tel:+${main}`}> {`main: ${main}`}</a>
+                <a href={`tel:+${fax}`}>{`fax: ${fax}`}</a>
               </li>
        )
 })}

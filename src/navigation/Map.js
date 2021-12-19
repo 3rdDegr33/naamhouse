@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import mapboxgl from "mapbox-gl";
-import ReactMapGL , { Marker  , NavigationControl , Layer} from 'react-map-gl';
+import ReactMapGL , { Marker  , NavigationControl , Layer , GeolocateControl} from 'react-map-gl';
 // import { BoxIconElement } from 'boxicons';
 function Map({center , reveal , selected}) {
   const map_key =   process.env.REACT_APP_MAP_KEY
@@ -29,7 +29,9 @@ function Map({center , reveal , selected}) {
       mapboxApiAccessToken={ map_key}
       onViewportChange={nextViewport => setViewport(nextViewport)}
       maxZoom={18}
-      >   <NavigationControl style={navControlStyle} />
+      >
+          <GeolocateControl/>   
+      <NavigationControl style={navControlStyle} />
            <Marker
               longitude = {-73.96892359984999}
               latitude = {40.778856033719066}
@@ -42,7 +44,7 @@ function Map({center , reveal , selected}) {
                <Marker key={i}
                 latitude={e.attributes.lat}
                 longitude={e.attributes.long}
-                offsetTop={-22}
+                offsetTop={-22} 
                >
 
                    <span onClick={()=>reveal(`${e.id}`)} className={`i-pin-card-map mapboxgl-marker mapboxgl-marker-anchor-center ${selected === e.id?'pin-sel':''}`}>

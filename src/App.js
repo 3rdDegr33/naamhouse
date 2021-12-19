@@ -18,7 +18,7 @@ function App() {
    } ,
    params:{
      page:1,
-     per_page:10,
+     per_page:14,
      state:'NY'
    }
  } ).then(({data: {data}}) => setCenter(data)) 
@@ -41,7 +41,7 @@ function App() {
     <div id='main'>
        <Document center={center} selected={selected}/>
        <Map center = {center} reveal={reveal} selected={selected}/>
-       {/* <input placeholder="search..." className="search"/> */}
+       <input placeholder="search..." className="search"/>
     </div>
 
   );
