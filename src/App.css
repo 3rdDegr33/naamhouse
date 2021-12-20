@@ -1,6 +1,212 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Encode Sans Expanded', sans-serif;
+
+@import url('https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&display=swap');
+*{
+  box-sizing: border-box;
+  font-family: "Lexend", sans-serif;
+} 
+body {
+	font-family: "Lexend", sans-serif;
+	line-height: 1.5;
+	min-height: 100vh;
+	/* display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #393232; */
+    background: url("./assets/hero_photo.jpg");
+}
+.selected{
+  /*color: #e00707; #14cb3d*/
+  display: inline;
+  background: #ee4035;
+  color: #fff;
+  padding: 0.25em;
+  border-radius: 4px;
+}
+
+.card::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: rgb(209, 205, 205); /* or add it to the track */
+}
+.card::-webkit-scrollbar-thumb {
+  background: #000;
+}
+.sidebar {
+  border: solid 1px #0000004f;
+}
+
+.i-pin-card-map {
+  border-radius: 50%;
+  background: #323a45;
+  color: #fff;
+  justify-content: center;
+  align-content: center;
+  display: inline-flex;
+  font-size: 15px;
+  padding-top: 1px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+#main{
+  display: flex;
+}
+/* #root{
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+} */
+.card {
+  background-color: #FFF;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 11%), 0 7px 7px 0 rgb(0 0 0 / 10%);
+  overflow: hidden;
+  padding: 1.25rem;
+  position: relative;
+  transition: 0.15s ease-in;
+  display: block;
+  overflow-y: auto;
+  max-height: 783px;
+  padding: 0 16px;
+}
+.card-list {
+  width: 110%;
+  width: 305px;
+  overflow-y: auto;
+}
+.card-header {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-footer {
+  margin-top: 1.25rem;
+  border-top: 1px solid #ddd;
+  padding-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #3a3a3e;
+    font-size: 15px;
+    margin-top: 14px;
+    line-height: 1.6em;
+}
+/* .card-footer::before {
+  counter-increment: tiles;
+  content: counter(tiles);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2c744;
+  font-weight: 700;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+} */
+.l-item{
+  top: 1rem;
+  left: 1rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 40px rgb(0 0 0 / 3%);
+  height: calc(103vh - 10rem);
+  border: solid 1px #9f9b9b9c;
+  overflow-y: scroll;
+  z-index: 22;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  color: #f9fafb;
+  padding: 20px 40px;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(16 18 27 / 40%);
+}
+.menu{
+  display: grid;
+  margin: inherit;
+}
+.mapboxgl-marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+.current-pos-pin {
+  border-radius: 50%;
+  width: 23px;
+  height: 23px;
+  box-shadow: 0 0 4px 0 rgb(0 0 0 / 50%);
+  border: solid 4px #fff;
+  background-color: #cd2026;
+}
+.location {
+  border-radius: 50%;
+  width: 17px;
+  height: 17px;
+  box-shadow: 0 0 4px 0 rgb(253 0 0);
+  border: solid 3px #fff;
+  background-color: rgb(244,13,21);
+  cursor: pointer;
+}
+.popup{
+  opacity: 0;
+  transition: opacity .2s;
+  position: relative;
+  border-radius: 6px;
+  padding: 15px;
+  width: 89px;
+  font-size: 18px;
+  display: flex;
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgb(0 0 0 / 10%);
+  text-align: center;
+  top: -198%;
+}
+
+.popup::before{
+  position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    background-color: inherit;
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%) rotate(
+45deg);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1);
+}
+/* .popup:hover {
+
+  opacity: 1;
+  background-color: #333333;
+  color: #ffffff;
+  top: -235%;
+} */
+.side{
+  display: flex;
+  flex-direction: column;
+}
+.search{
+  font: inherit;
+  width: 100%;
+  border: 0;
+  background-color: transparent;
+  margin: 0;
+  height: 50px;
+  color: #404040;
+  color: rgba(0, 0, 0, 0.75);
+  padding: 6px 45px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.pin-sel {
+  background: #e00707;
 }
