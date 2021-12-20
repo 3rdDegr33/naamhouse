@@ -1,31 +1,32 @@
-import React from 'react';
+import React , {useState} from 'react';
 import { FaBars } from 'react-icons/fa';
 import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, NavBtn, NavBtnLink } from './NavbarElements';
 
-const Navbar = () => {
+const Navbar = ({isOpen , setIsOpen}) => {
+  
   return (
     <>
       <Nav>
-        <NavbarContainer>
+        <NavbarContainer >
           <NavLogo to="/">NaamHouse</NavLogo>
           <MobileIcon>
-            <FaBars />
+            <FaBars  onClick={()=>setIsOpen(!isOpen)}/>
           </MobileIcon>
           <NavMenu>
             <NavItem>
-              <NavLinks to="apply">Apply</NavLinks>
+              <NavLinks to="/apply">Apply</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="services">Services</NavLinks>
+              <NavLinks to="/services">Services</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="events">Events</NavLinks>
+              <NavLinks to="/events">Events</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="about us">About Us</NavLinks>
+              <NavLinks to="/about us">About Us</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="get involved">Get Involved</NavLinks>
+              <NavLinks to="/get involved">Get Involved</NavLinks>
             </NavItem>
           </NavMenu>
           <NavBtn>
